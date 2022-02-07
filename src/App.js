@@ -1,22 +1,31 @@
-import logo from './logo.svg';
+import lr from './lr.png';
 import './App.css';
+import Button from '@mui/material/Button';
+// import React, { useEffect, useState } from "react";
+import { Web3Storage, File } from 'web3.storage/dist/bundle.esm.min.js'
 
 function App() {
+
+  function getAccessToken() {
+    return process.env.WEB3STORAGE_TOKEN;
+  }
+  
+  function makeStorageClient() {
+    return new Web3Storage({ token: getAccessToken() });
+  }
+
+  function play() {
+    console.log("Hello! 🎉");
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={lr} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Button variant="contained" onClick={play}>Play</Button>
       </header>
     </div>
   );
