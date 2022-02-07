@@ -7,10 +7,8 @@ import { Web3Storage, File } from 'web3.storage/dist/bundle.esm.min.js'
 function App() {
 
   function getAccessToken() {
-    // return process.env.WEB3STORAGE_TOKEN;
-
     // Get your own API token at https://web3.storage/account/
-    return "12345"; // 
+    return process.env.REACT_APP_WEB3STORAGE_TOKEN;
   }
   
   function makeStorageClient() {
@@ -24,7 +22,7 @@ function App() {
     // see: https://developer.mozilla.org/en-US/docs/Web/API/Blob
     // Here we're just storing a JSON object, but you can store images,
     // audio, or whatever you want!
-    const obj = { hello: 'world' };
+    const obj = { game: 'Lode Runner' };
     const blob = new Blob([JSON.stringify(obj)], {type : 'application/json'});
   
     const files = [
